@@ -396,3 +396,11 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+
+# Own Stuff
+**/.vscode/
+**/*.code-workspace
+**/bin/
+**/obj/
+**/secrets.json
