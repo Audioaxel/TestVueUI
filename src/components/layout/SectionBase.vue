@@ -7,6 +7,7 @@
 
 <script setup lang="ts">
 const props = defineProps({
+  // TODO: Enum statt diesen mist
   section: {
     type: String,
     default: 'section-a',
