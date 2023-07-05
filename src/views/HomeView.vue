@@ -1,19 +1,22 @@
 <template>
   <main>
 
-    <SectionBase>
+    <SectionBase title="">
       <template #content>
-        <h1>This is an home page</h1>
+        <h1>My awesome Vue-Page, lul!</h1>
       </template>
     </SectionBase>
 
-    <SectionBase section="section-c">
+    <SectionBase
+    title="Ich probier mal was" 
+    :color="ESectionColor.Green"
+    >
       <template #content>
-        <h3>Section02</h3>
+        <SimpleGetRequest />
       </template>
     </SectionBase>
 
-    <SectionBase section="section-b">
+    <SectionBase :color="ESectionColor.Yellow">
       <template #content>
         <h3>Section03</h3>
       </template>
@@ -24,5 +27,8 @@
 
 
 <script setup lang="ts">
+import { ESectionColor } from '@/components/enums/ESectionColor';
+
 import SectionBase from '@/components/layout/SectionBase.vue';
+import SimpleGetRequest from '@/components/api/SimpleGetRequest.vue';
 </script>

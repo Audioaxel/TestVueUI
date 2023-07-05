@@ -1,10 +1,10 @@
 <template>
   <div class="page01">
+    <CopyPasteAndLook />
     <h1>This is page01</h1>
 
     <TestingBasics />
 
-    <CopyPasteAndLook />
     
 
   </div>
@@ -18,11 +18,5 @@ import CopyPasteAndLook from '../components/playground/CopyPasteAndLook.vue';
 
 
 <style>
-@media (min-width: 1024px) {
-  .page01 {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
+
 </style>
