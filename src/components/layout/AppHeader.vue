@@ -11,6 +11,13 @@
     </n-layout>
   </n-space>
 </template>
+
+
+<script setup lang="ts">
+  import { NSpace, NLayout, NLayoutHeader } from 'naive-ui';
+  import { RouterLink } from 'vue-router';
+</script>
+
   
 <style scoped>
 .n-layout-header {
@@ -59,10 +66,4 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
-
 </style>
-
-<script setup lang="ts">
-  import { NSpace, NLayout, NLayoutHeader } from 'naive-ui'
-  import { RouterLink } from 'vue-router'
-</script>
