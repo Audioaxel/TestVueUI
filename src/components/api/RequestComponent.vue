@@ -1,21 +1,28 @@
 <template>
   <ButtonBase 
-  :color="EButtonColor.Red"
+  class="button-base"
+  :color="EButtonColor.Green"
   @click="getRequest"
   >
     <template #content>
       Test Api Get
     </template>
   </ButtonBase>
+
+  <InputBase />
+
   <ButtonBase 
-  :color="EButtonColor.Green"
+  class="button-base"
+  :color="EButtonColor.Blue"
   @click="postRequest(postModel)"
   >
     <template #content>
       Test Api Post
     </template>
   </ButtonBase>
+
   <ButtonBase 
+  class="button-base"
   :color="EButtonColor.Red"
   @click="deleteRequest"
   >
@@ -31,6 +38,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
 import ButtonBase from '../layout/components/ButtonBase.vue';
+import InputBase from '../layout/components/InputBase.vue';
 import { EButtonColor } from '@/components/enums/EButtonColor';
 import { RequestHandler } from './RequestHandler';
 import type { IUIFirstRequestModel } from './models/IUIFirstRequestModel';
@@ -45,7 +53,9 @@ const postModel: IUIFirstRequestModel = reactive({
   age: 1
 });
 
-const handler = new RequestHandler();
+
+// CRUD - Create, Update, Delete
+const handler = new RequestHandler<IUIFirstRequestModel>();
 
 const getRequest = () => {
   handler.getModel()
@@ -80,3 +90,9 @@ const deleteRequest = () => {
 };
 
 </script>
+
+<style scoped>
+.button-base {
+  margin: 10px;
+}
+</style>
