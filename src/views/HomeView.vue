@@ -12,16 +12,13 @@
     :color="ESectionColor.Green"
     >
       <template #content>
-        <SimpleGetRequest />
-        <SimplePostRequest />
 
       </template>
     </SectionBase>
 
     <SectionBase :color="ESectionColor.Yellow">
       <template #content>
-        <h3>Section03</h3>
-
+        <RequestComponent />
       </template>
     </SectionBase>
 
@@ -33,6 +30,5 @@
 import { ESectionColor } from '@/components/enums/ESectionColor';
 
 import SectionBase from '@/components/layout/SectionBase.vue';
-import SimpleGetRequest from '@/components/api/SimpleGetRequest.vue';
-import SimplePostRequest from '@/components/api/SimplePostRequest.vue';
+import RequestComponent from '@/components/api/RequestComponent.vue';
 </script>
