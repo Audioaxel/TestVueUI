@@ -1,28 +1,35 @@
 <template>
   <ButtonBase 
   :color="EButtonColor.Red"
-  @click="handleApiCall"
+  @click="request"
   >
     <template #content>
       Test Api Get02
-      <h4> {{ getResponse.responseString }} </h4>
+      <h4> {{ refTest }} </h4>
     </template>
   </ButtonBase>
 </template>
 
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import { EButtonColor } from '@/components/enums/EButtonColor';
 import ButtonBase from '../layout/components/ButtonBase.vue';
+import { SimpleRequestHandler } from './SimpleRequestHandler';
 
-const getResponse = reactive({
-  responseString: "nix"
-});
+const refTest = ref("nix");
 
-const handleApiCall = () => {
-  fetch('http://localhost:5184')
-    .then(response => response.json())
-    .then(data => getResponse.responseString = JSON.stringify(data));    
-}
+const handler = new SimpleRequestHandler();
+const request = () => {
+  handler.handleApiGet()
+  .then(result => {
+    refTest.value = result;
+    console.log(result);
+  })
+  .catch(error => {
+    refTest.value = "Error";
+    console.error(error);
+  });
+};
+
 </script>
