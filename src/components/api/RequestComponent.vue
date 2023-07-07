@@ -9,8 +9,6 @@
     </template>
   </ButtonBase>
 
-  <InputBase />
-
   <ButtonBase 
   class="button-base"
   :color="EButtonColor.Blue"
@@ -30,6 +28,12 @@
       Test Api Delete
     </template>
   </ButtonBase>
+
+
+  <PostRequestForm
+  v-model="itemData"
+  />
+
   
   <h3 style="padding-left: 10px;">Request: {{ requestModel }}</h3>
 </template>
@@ -38,24 +42,49 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
 import ButtonBase from '../layout/components/ButtonBase.vue';
-import InputBase from '../layout/components/InputBase.vue';
 import { EButtonColor } from '@/components/enums/EButtonColor';
 import { RequestHandler } from './RequestHandler';
-import type { IUIFirstRequestModel } from './models/IUIFirstRequestModel';
+import type { IFirstRequestModel } from './models/IFirstRequestModel';
+import PostRequestForm from './PostRequestForm.vue';
 
-const requestModel: IUIFirstRequestModel = reactive({
+const itemData = reactive({
+  name: "Nothing happend here",
+  age: "1"
+});
+
+
+
+const handlePostRequest = (e: Event) => {
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const requestModel: IFirstRequestModel = reactive({
   name: "Nothing happend here",
   age: 0
 });
 
-const postModel: IUIFirstRequestModel = reactive({
+const postModel: IFirstRequestModel = reactive({
   name: "I am a post model",
   age: 1
 });
 
 
 // CRUD - Create, Update, Delete
-const handler = new RequestHandler<IUIFirstRequestModel>();
+const handler = new RequestHandler<IFirstRequestModel>();
 
 const getRequest = () => {
   handler.getModel()
@@ -69,7 +98,7 @@ const getRequest = () => {
     });
 };
 
-const postRequest = (postModel: IUIFirstRequestModel) => {
+const postRequest = (postModel: IFirstRequestModel) => {
   handler.postModel(postModel)
     .then(result => {
       console.log(result);
