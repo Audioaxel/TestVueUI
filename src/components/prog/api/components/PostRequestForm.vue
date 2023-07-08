@@ -1,5 +1,6 @@
 <template>
   <NForm 
+  ref="formRef"
   @submit="handleSubmit"
   :rules="formRules"
   >
@@ -44,7 +45,7 @@
 
 
 <script setup lang="ts">
-import { NInput, NSpace, NForm, NFormItem } from 'naive-ui';
+import { NInput, NSpace, NForm, NFormItem, type FormInst, type FormRules } from 'naive-ui';
 import { reactive, ref } from 'vue';
 
 import ButtonBase from '@/components/vueapp/ButtonBase.vue';
@@ -55,6 +56,8 @@ import type {
   UITestmodelPost,
   UIEditTestmodelPost 
 } from '../models/Testmodel.frontend';
+
+const formRef = ref<FormInst>();
 
 const inputModel = reactive({
   text: null,
@@ -83,13 +86,20 @@ function createWorkingCopy(): UIEditTestmodelPost {
 const handleSubmit = (e: Event) => {
   e.preventDefault();
 
+  const test = formRef.value?.validate();
+
   emit("submitPostRequest", inputModel);
   inputModel.reset();
 };
 
-
 const formValidator = new UIFormValidationService();
-const formRules = formValidator.rules<UITestmodelPost>();
-
+// const formRules = formValidator.rules<UITestmodelPost>();
+const formRules: FormRules = {
+    number: [{
+    required: true,
+    message: 'Please enter a valid Number',
+    trigger: ['input', 'blur']
+  }]
+}
 
 </script>
