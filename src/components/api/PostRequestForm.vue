@@ -37,10 +37,13 @@ import ButtonBase from '../layout/components/ButtonBase.vue';
 import { EButtonColor } from '@/components/enums/EButtonColor';
 import type { IUIFirstRequestModel } from './models/IUIFirstRequestModel';
 
-
+/**TODO: @Martin: So gut? wie ist es mit object pro submit zu erzeugen 
+ * und danach wieder zu verwerfen
+ * UND: warum geht das hier mit ref() nicht?
+ **/
 const inputModel: IUIFirstRequestModel = reactive({
-  text: "" || null,
-  number: "" || null,
+  text: null,
+  number: null,
   reset() {
     this.text = null;
     this.number = null;
