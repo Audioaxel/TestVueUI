@@ -5,7 +5,6 @@
 
     <TestingBasics />
 
-    
 
   </div>
 </template>
@@ -14,6 +13,7 @@
 <script setup lang="ts">
 import TestingBasics from '@/components/prog/playground/TestingBasics.vue';
 import CopyPasteAndLook from '@/components/prog/playground/CopyPasteAndLook.vue';
+
 </script>
 
 
