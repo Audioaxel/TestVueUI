@@ -35,13 +35,13 @@ import { NInput, NSpace } from 'naive-ui';
 import { reactive } from 'vue';
 import ButtonBase from '../layout/components/ButtonBase.vue';
 import { EButtonColor } from '@/components/enums/EButtonColor';
-import type { IUIFirstRequestModel } from './models/IUIFirstRequestModel';
+import type { IUITestmodelPost } from './models/Testmodel.frontend';
 
 /**TODO: @Martin: So gut? wie ist es mit object pro submit zu erzeugen 
  * und danach wieder zu verwerfen
  * UND: warum geht das hier mit ref() nicht?
  **/
-const inputModel: IUIFirstRequestModel = reactive({
+const inputModel: IUITestmodelPost = reactive({
   text: null,
   number: null,
   reset() {
@@ -60,4 +60,4 @@ const handleSubmit = (e: Event) => {
 };
 
 
-</script>
+</script>./models/Testmodel.backend./models/Testmodel.frontend

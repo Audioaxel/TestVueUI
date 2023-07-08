@@ -11,16 +11,6 @@
 
   <ButtonBase 
   class="button-base"
-  :color="EButtonColor.Blue"
-  @click="postRequest(postModel)"
-  >
-    <template #content>
-      Test Api Post
-    </template>
-  </ButtonBase>
-
-  <ButtonBase 
-  class="button-base"
   :color="EButtonColor.Red"
   @click="deleteRequest"
   >
@@ -28,7 +18,6 @@
       Test Api Delete
     </template>
   </ButtonBase>
-
 
   <PostRequestForm
   @submit-post-request="handlePostRequest"
@@ -44,37 +33,25 @@ import { reactive } from 'vue';
 import ButtonBase from '../layout/components/ButtonBase.vue';
 import { EButtonColor } from '@/components/enums/EButtonColor';
 import { RequestHandler } from './RequestHandler';
-import type { IFirstRequestModel } from './models/IFirstRequestModel';
+import type { ITestmodelPost } from './models/Testmodel.backend';
 import PostRequestForm from './PostRequestForm.vue';
-import type { IUIFirstRequestModel } from './models/IUIFirstRequestModel';
+import type { IUITestmodelPost } from './models/Testmodel.frontend';
 
 
-const itemData = reactive({
-  text: "Nothing happend here",
-  number: "1"
-});
-
-
-const handlePostRequest = (inputModel: IUIFirstRequestModel) => {
+const handlePostRequest = (inputModel: IUITestmodelPost) => {
   console.log(inputModel.text);
 };
 
 
 
 
-const requestModel: IFirstRequestModel = reactive({
+// CRUD - Create, Update, Delete
+const handler = new RequestHandler<ITestmodelPost>();
+
+const requestModel: ITestmodelPost = reactive({
   text: "Nothing happend here",
   number: 0
 });
-
-const postModel: IFirstRequestModel = reactive({
-  text: "I am a post model",
-  number: 1
-});
-
-
-// CRUD - Create, Update, Delete
-const handler = new RequestHandler<IFirstRequestModel>();
 
 const getRequest = () => {
   handler.getModel()
@@ -88,7 +65,7 @@ const getRequest = () => {
     });
 };
 
-const postRequest = (postModel: IFirstRequestModel) => {
+const postRequest = (postModel: ITestmodelPost) => {
   handler.postModel(postModel)
     .then(result => {
       console.log(result);
@@ -114,4 +91,4 @@ const deleteRequest = () => {
 .button-base {
   margin: 10px;
 }
-</style>
+</style>./models/Testmodel.backend

@@ -1,4 +1,4 @@
-export interface IFirstRequestModel {
+export interface ITestmodelPost {
     text: string;
     number: number;
 }

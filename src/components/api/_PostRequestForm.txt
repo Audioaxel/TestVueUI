@@ -34,12 +34,12 @@ import { NInput, NSpace } from 'naive-ui';
 import { computed } from 'vue';
 import ButtonBase from '../layout/components/ButtonBase.vue';
 import { EButtonColor } from '@/components/enums/EButtonColor';
-import type { IUIFirstRequestModel } from './models/IUIFirstRequestModel';
+import type { IUITestmodelPost } from './models/Testmodel.frontend';
 
 
 const props = defineProps ({
   modelValue: {
-    type: Object as () => IUIFirstRequestModel,
+    type: Object as () => IUITestmodelPost,
     required: true
   }
 });
@@ -65,7 +65,7 @@ const age = computed(() =>
 
 
 const clearDataInput = () => {
-  const newModel: IUIFirstRequestModel = {
+  const newModel: IUITestmodelPost = {
     name: '',
     age: ''
   };
