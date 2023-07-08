@@ -1,6 +1,3 @@
-import { ti } from 'ts-type-inspector'
-
-
 export class RequestHandler<TModel> {
 
   public getModel(): Promise<TModel> {
@@ -31,4 +28,5 @@ export class RequestHandler<TModel> {
       .then(response => response.json())
       .then(response => response as TModel);
   }
+  
 }
