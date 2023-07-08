@@ -42,6 +42,10 @@ const dividerColor = props.color;
 <style scoped>
 .section {
   min-height: 200px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .section-white {
@@ -58,7 +62,7 @@ const dividerColor = props.color;
 
 /* Columns */
 .section-content {
-  height: 108px;
+  height: auto;
   background-color: rgba(0, 128, 0, 0.12);
   display: flex;
   align-items: center;

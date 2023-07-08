@@ -12,13 +12,12 @@
     :color="ESectionColor.Green"
     >
       <template #content>
-
+        <RequestComponent />
       </template>
     </SectionBase>
 
     <SectionBase :color="ESectionColor.Yellow">
       <template #content>
-        <RequestComponent />
       </template>
     </SectionBase>
 

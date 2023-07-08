@@ -1,5 +1,8 @@
 <template>
-  <NForm @submit="handleSubmit">
+  <NForm 
+  @submit="handleSubmit"
+  :rules="formRules"
+  >
 
     <NSpace vertical>
       <NFormItem label="Enter a valid String:" label-placement="top">
@@ -8,6 +11,7 @@
         v-model:value="inputModel.text"
         size="large" 
         placeholder="Gimme a Text"
+        style="max-width: 200px;"
         />
       </NFormItem>
     </NSpace>
@@ -19,6 +23,7 @@
           v-model:value="inputModel.number"
           size="large" 
           placeholder="Gimme a Number"
+          style="max-width: 200px;"
         />
       </NFormItem>
     </NSpace>
@@ -40,13 +45,18 @@
 
 <script setup lang="ts">
 import { NInput, NSpace, NForm, NFormItem } from 'naive-ui';
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
+
 import ButtonBase from '@/components/vueapp/ButtonBase.vue';
 import { EButtonColor } from '@/components/vueapp/enums/EButtonColor';
-import type { IUITestmodelPost } from '../models/Testmodel.frontend';
 
+import { UIFormValidationService } from '../services/UIFormValidationService';
+import type { 
+  UITestmodelPost,
+  UIEditTestmodelPost 
+} from '../models/Testmodel.frontend';
 
-const inputModel: IUITestmodelPost = reactive({
+const inputModel = reactive({
   text: null,
   number: null,
   reset() {
@@ -55,7 +65,20 @@ const inputModel: IUITestmodelPost = reactive({
   }
 });
 
-const emit = defineEmits(["submitPostRequest"]);
+const emit = defineEmits<{
+  (name: "submitPostRequest", value: UIEditTestmodelPost): void;
+}>();
+
+// TODO: Working Copy
+const workingCopy = ref(createWorkingCopy());
+
+function createWorkingCopy(): UIEditTestmodelPost {
+  return {
+    text: inputModel.text,
+    number: inputModel.number
+  };
+}
+
 
 const handleSubmit = (e: Event) => {
   e.preventDefault();
@@ -65,4 +88,8 @@ const handleSubmit = (e: Event) => {
 };
 
 
-</script>./models/Testmodel.backend./models/Testmodel.frontend
+const formValidator = new UIFormValidationService();
+const formRules = formValidator.rules<UITestmodelPost>();
+
+
+</script>
