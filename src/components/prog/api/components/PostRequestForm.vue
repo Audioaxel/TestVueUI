@@ -24,16 +24,14 @@
     </NSpace>
 
     <NSpace vertical>
-      <NFormItem>
-        <ButtonBase 
-        type="submit"
-        :color="EButtonColor.Blue"
-        >
-          <template #content>
-            Test Api Post
-          </template>
-        </ButtonBase>
-      </NFormItem>
+      <ButtonBase 
+      type="submit"
+      :color="EButtonColor.Blue"
+      >
+        <template #content>
+          Test Api Post
+        </template>
+      </ButtonBase>
     </NSpace>
   </NForm>
 
@@ -47,10 +45,7 @@ import ButtonBase from '@/components/vueapp/ButtonBase.vue';
 import { EButtonColor } from '@/components/vueapp/enums/EButtonColor';
 import type { IUITestmodelPost } from '../models/Testmodel.frontend';
 
-/**TODO: @Martin: So gut? wie ist es mit object pro submit zu erzeugen 
- * und danach wieder zu verwerfen
- * UND: warum geht das hier mit ref() nicht?
- **/
+
 const inputModel: IUITestmodelPost = reactive({
   text: null,
   number: null,
