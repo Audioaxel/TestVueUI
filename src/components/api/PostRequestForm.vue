@@ -3,23 +3,19 @@
     <n-space vertical>
       <n-input 
       type="text"
-      v-model="inputName"
+      v-model:value="inputModel.text"
       size="large" 
       placeholder="Gimme a Name"
-      clearable
-      
-      
       />
     </n-space>
-    <input type="text" v-model="inputName" placeholder="shit ey, jetzt funktnier!" />
-    <!-- <n-space vertical>
+    <n-space vertical>
       <n-input 
       type="text"
-      v-model="inputAge"
+      v-model:value="inputModel.number"
       size="large" 
       placeholder="Gimme a Number"
       />
-    </n-space> -->
+    </n-space>
     <ButtonBase 
     type="submit"
     class="button-base"
@@ -30,41 +26,34 @@
       </template>
     </ButtonBase>
   </form>
+
 </template>
 
 
 <script setup lang="ts">
 import { NInput, NSpace } from 'naive-ui';
-import { computed, reactive, ref } from 'vue';
+import { reactive } from 'vue';
 import ButtonBase from '../layout/components/ButtonBase.vue';
 import { EButtonColor } from '@/components/enums/EButtonColor';
 import type { IUIFirstRequestModel } from './models/IUIFirstRequestModel';
 
 
-const model = reactive({
-  name: "Nothing happend here",
-  age: "1"
-});
-
-const inputNameValue = ref<string | null>(null);
-const test = ref(true);
-
-
-const inputName = computed({
-  get() {
-    return model.name;
-  },
-  set(value) {
-    model.name = value;
+const inputModel: IUIFirstRequestModel = reactive({
+  text: "" || null,
+  number: "" || null,
+  reset() {
+    this.text = null;
+    this.number = null;
   }
 });
 
+const emit = defineEmits(["submitPostRequest"]);
+
 const handleSubmit = (e: Event) => {
   e.preventDefault();
-  console.log(model.name);
 
-  inputName.value = "";
-  console.log(model.name);
+  emit("submitPostRequest", inputModel);
+  inputModel.reset();
 };
 
 

@@ -31,7 +31,7 @@
 
 
   <PostRequestForm
-  v-model="itemData"
+  @submit-post-request="handlePostRequest"
   />
 
   
@@ -46,40 +46,30 @@ import { EButtonColor } from '@/components/enums/EButtonColor';
 import { RequestHandler } from './RequestHandler';
 import type { IFirstRequestModel } from './models/IFirstRequestModel';
 import PostRequestForm from './PostRequestForm.vue';
+import type { IUIFirstRequestModel } from './models/IUIFirstRequestModel';
+
 
 const itemData = reactive({
-  name: "Nothing happend here",
-  age: "1"
+  text: "Nothing happend here",
+  number: "1"
 });
 
 
-
-const handlePostRequest = (e: Event) => {
-
+const handlePostRequest = (inputModel: IUIFirstRequestModel) => {
+  console.log(inputModel.text);
 };
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 const requestModel: IFirstRequestModel = reactive({
-  name: "Nothing happend here",
-  age: 0
+  text: "Nothing happend here",
+  number: 0
 });
 
 const postModel: IFirstRequestModel = reactive({
-  name: "I am a post model",
-  age: 1
+  text: "I am a post model",
+  number: 1
 });
 
 
@@ -89,8 +79,8 @@ const handler = new RequestHandler<IFirstRequestModel>();
 const getRequest = () => {
   handler.getModel()
     .then(result => {
-      requestModel.name = result.name;
-      requestModel.age = result.age;
+      requestModel.text = result.text;
+      requestModel.number = result.number;
       console.log(result);
     })
     .catch(error => {

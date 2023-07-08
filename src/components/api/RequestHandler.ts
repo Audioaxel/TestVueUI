@@ -1,3 +1,6 @@
+import { ti } from 'ts-type-inspector'
+
+
 export class RequestHandler<TModel> {
 
   public getModel(): Promise<TModel> {

@@ -1,4 +1,4 @@
 export interface IFirstRequestModel {
-    name: string;
-    age: number;
+    text: string;
+    number: number;
 }

@@ -1,4 +1,5 @@
 export interface IUIFirstRequestModel {
-    name: string | null;
-    age: string | null;
+    text: string | null;
+    number: string | null;
+    reset(): void;
 }

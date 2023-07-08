@@ -25,7 +25,7 @@ const props = defineProps ({
   type: {
     type: String as PropType<'button' | 'submit' | 'reset'>,
     default: 'button',
-    validator: (value: any) => {
+    validator: (value: string) => {
       return ['button', 'submit', 'reset'].includes(value);
     }
   }
