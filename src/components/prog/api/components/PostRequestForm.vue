@@ -33,9 +33,9 @@
 <script setup lang="ts">
 import { NInput, NSpace } from 'naive-ui';
 import { reactive } from 'vue';
-import ButtonBase from '../layout/components/ButtonBase.vue';
-import { EButtonColor } from '@/components/enums/EButtonColor';
-import type { IUITestmodelPost } from './models/Testmodel.frontend';
+import ButtonBase from '@/components/vueapp/ButtonBase.vue';
+import { EButtonColor } from '@/components/vueapp/enums/EButtonColor';
+import type { IUITestmodelPost } from '../models/Testmodel.frontend';
 
 /**TODO: @Martin: So gut? wie ist es mit object pro submit zu erzeugen 
  * und danach wieder zu verwerfen

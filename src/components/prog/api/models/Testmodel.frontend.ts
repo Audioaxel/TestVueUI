@@ -3,3 +3,5 @@ export interface IUITestmodelPost {
     number: string | null;
     reset(): void;
 }
+
+// export type UITestmodelPost = IUITestmodelPost & IModel<IUITestmodelPost>;

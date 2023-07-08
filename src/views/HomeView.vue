@@ -27,8 +27,8 @@
 
 
 <script setup lang="ts">
-import { ESectionColor } from '@/components/enums/ESectionColor';
+import { ESectionColor } from '@/components/vueapp/enums/ESectionColor';
 
-import SectionBase from '@/components/layout/SectionBase.vue';
-import RequestComponent from '@/components/api/RequestComponent.vue';
+import SectionBase from '@/components/vueapp/layout/SectionBase.vue';
+import RequestComponent from '@/components/prog/api/components/RequestComponent.vue';
 </script>

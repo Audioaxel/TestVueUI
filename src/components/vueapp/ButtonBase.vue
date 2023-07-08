@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import { type PropType } from 'vue';
 import { NButton, NSpace } from 'naive-ui';
-import { EButtonColor } from '@/components/enums/EButtonColor';
+import { EButtonColor } from '@/components/vueapp/enums/EButtonColor';
 
 const props = defineProps ({
   color: {

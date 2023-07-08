@@ -7,7 +7,7 @@
 
 
 <script setup lang="ts">
-import RequestComponent from '@/components/api/RequestComponent.vue';
+import RequestComponent from '@/components/prog/api/components/RequestComponent.vue';
 </script>
 
 <style>

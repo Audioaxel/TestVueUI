@@ -10,6 +10,6 @@
 
 
 <script setup lang="ts">
-import ButtonBase from '../layout/components/ButtonBase.vue';
-import { EButtonColor } from '@/components/enums/EButtonColor';
+import ButtonBase from '@//components/vueapp/ButtonBase.vue';
+import { EButtonColor } from '@/components/vueapp/enums/EButtonColor';
 </script>

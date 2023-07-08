@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { NDivider, NGrid, NGridItem } from 'naive-ui';
-import { ESectionColor } from '@/components/enums/ESectionColor';
+import { ESectionColor } from '@/components/vueapp/enums/ESectionColor';
 
 const props = defineProps({
   color: {

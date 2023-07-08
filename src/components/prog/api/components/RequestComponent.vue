@@ -30,16 +30,18 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue';
-import ButtonBase from '../layout/components/ButtonBase.vue';
-import { EButtonColor } from '@/components/enums/EButtonColor';
-import { RequestHandler } from './RequestHandler';
-import type { ITestmodelPost } from './models/Testmodel.backend';
+import ButtonBase from '@/components/vueapp/ButtonBase.vue';
+import { EButtonColor } from '@/components/vueapp/enums/EButtonColor';
+
+import { RequestHandler } from '../services/RequestHandler';
+import type { ITestmodelPost } from '../models/Testmodel.backend';
 import PostRequestForm from './PostRequestForm.vue';
-import type { IUITestmodelPost } from './models/Testmodel.frontend';
+import type { IUITestmodelPost } from '../models/Testmodel.frontend';
 
 
 const handlePostRequest = (inputModel: IUITestmodelPost) => {
   console.log(inputModel.text);
+  console.log(inputModel.number);
 };
 
 

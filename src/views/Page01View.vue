@@ -12,8 +12,8 @@
 
 
 <script setup lang="ts">
-import TestingBasics from '../components/playground/TestingBasics.vue';
-import CopyPasteAndLook from '../components/playground/CopyPasteAndLook.vue';
+import TestingBasics from '@/components/prog/playground/TestingBasics.vue';
+import CopyPasteAndLook from '@/components/prog/playground/CopyPasteAndLook.vue';
 </script>
 
 
