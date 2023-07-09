@@ -7,7 +7,6 @@ export type UIEditModel<T> = {
 };
 
 export type BtoUIModel<T> = {
-  // Generic Model to create generic validation rules
+  // Generic Model to transfer data from backend to frontend
   // Accepts a Backend Model, never???, rules for rules^^?
-  // -> use for rules for inputs, forms, ...
 };
